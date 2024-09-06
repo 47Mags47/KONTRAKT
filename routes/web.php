@@ -13,4 +13,5 @@ use Illuminate\Support\Facades\Route;
     Route::get('/maker/index', [MakerController::class, 'index'])->name('maker.index');
     Route::get('/maker/create', [MakerController::class, 'create'])->name('maker.create');
     Route::post('/maker/store', [MakerController::class, 'store'])->name('maker.store');
+    Route::get('/maker/{maker}/show', [MakerController::class, 'show'])->name('maker.show');
 // });

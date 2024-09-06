@@ -31,6 +31,7 @@
                 type="{{ isset($inpType) ? $inpType : 'text' }}"
                 placeholder="{{ isset($placeholder) ? $placeholder : '' }}"
                 value="{{ $value }}"
+                @disabled(isset($disabled))
             >
         </label>
     @break
@@ -48,6 +49,7 @@
             <select
                 id="{{ isset($name) ? $name : '' }}"
                 name="{{ isset($name) ? $name : '' }}"
+                @disabled(isset($disabled))
             >
                 {{ $slot }}
             </select>
@@ -68,6 +70,7 @@
             <textarea
                 name="{{ isset($name) ? $name : '' }}"
                 id="{{ isset($name) ? $name : '' }}"
+                @disabled(isset($disabled))
             >{{ isset($value) ? $value : '' }}</textarea>
         </label>
     @break

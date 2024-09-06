@@ -39,11 +39,16 @@ class MakerController extends Controller
             'city_id' => ['required', 'notIn:0'],
         ]);
 
-        $path = $request->file('logo')->store('public/maker-logos');
+        $path = $request->file('logo')->store('maker-logos', 'public');
         $validate['logo'] = 'storage/' . $path;
 
         Main_Maker::create($validate);
 
         return back()->with(['message' => 'Запись успешно добавлена']);
+    }
+
+    public function show(Request $request){
+        $maker = Main_Maker::whereKey($request->maker)->first();
+        return view('pages.admin.maker.show', compact('maker'));
     }
 }

@@ -40,11 +40,6 @@
         </x-form.box>
         <div class="items">
             <x-table.table>
-                {{-- <x-slot:options>
-                    <x-table.filter-box create-link="" >
-                        <x-table.filter title="Город" pole="city" />
-                    </x-table.filter-box>
-                </x-slot:options> --}}
                 <x-slot:thead>
                     <tr>
                         <th>Тип</th>
