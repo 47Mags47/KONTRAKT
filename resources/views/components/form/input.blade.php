@@ -100,19 +100,6 @@
                     <i class="fa fa-camera fa-4x" aria-hidden="true"></i>
                 </div>
             </div>
-
-
-
-            {{-- @if (isset($empty))
-                <div class="clicked-box">
-                    <i class="fa fa-camera fa-4x" aria-hidden="true"></i>
-                </div>
-            @else
-                <div class="preview">
-                    <img src="{{ $src }}" alt="{{ isset($src) ? $src : 'IMG' }}">
-                </div>
-            @endif --}}
-
         </label>
     @break
 @endswitch

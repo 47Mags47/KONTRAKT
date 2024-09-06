@@ -39,6 +39,9 @@ class MakerController extends Controller
             'city_id' => ['required', 'notIn:0'],
         ]);
 
+        $path = $request->file('logo')->store('public/maker-logos');
+        $validate['logo'] = 'storage/' . $path;
+
         Main_Maker::create($validate);
 
         return back()->with(['message' => 'Запись успешно добавлена']);
