@@ -2,7 +2,8 @@ label
     font-size: 1rem
 
 input,
-textarea
+textarea,
+select
     border: 1px solid #999
     border-radius: 5px
     padding: 5px 10px
@@ -12,5 +13,42 @@ textarea
     &:focus
         border: 1px solid #666
 
-// .form-box form label.rows input
-//     margin-left: 10px
+textarea
+    resize: none
+
+label.logo-circle
+    width: 100%
+    height: 100%
+    position: relative
+    border-radius: 50%
+    overflow: hidden
+    .hovered
+        width: 100%
+        height: 100%
+        cursor: pointer
+        overflow: hidden
+        .preview
+            width: 100%
+            height: 100%
+            display: grid
+            justify-content: center
+            align-items: center
+            img
+                max-width: 100%
+                max-height: 100%
+                width: 100%
+                height: 100%
+        .clicked-box
+            position: relative
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            display: grid
+            justify-content: center
+            align-items: center
+            background: rgb(204, 204, 204, .5)
+            backdrop-filter: blur(3px)
+            transition: var(--all-transition)
+        &:hover .clicked-box
+            top: -100%

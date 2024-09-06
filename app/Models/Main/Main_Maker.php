@@ -12,6 +12,8 @@ class Main_Maker extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     /**
      * Get all of the items for the Maker
      *

@@ -13,11 +13,8 @@
                     <x-form.input type="logo-circle" name="logo" empty hidden />
                 </x-split.element>
                 <x-split.element w="350">
-                    <x-form.input type="select" label="Город" name="city_id">
-                        <option value="0">--- Не выбрано ---</option>
-                        @foreach ($cityes as $city)
-                            <option value="{{ $city->id }}" @selected($city->id == old('city_id'))>{{ $city->name }}</option>
-                        @endforeach
+                    <x-form.input type="select" label="Город">
+                        <option value="">--- Не выбрано ---</option>
                     </x-form.input>
                     <x-form.input label="Наименование" name="name" />
                     <x-form.input label="Адрес" name="adres" />
@@ -40,11 +37,12 @@
         </x-form.box>
         <div class="items">
             <x-table.table>
-                {{-- <x-slot:options>
+                <x-slot:options>
                     <x-table.filter-box create-link="" >
-                        <x-table.filter title="Город" pole="city" />
+                        <x-table.filter title="Тип" pole="type_id" />
+                        <x-table.filter title="Категория" pole="category_id" />
                     </x-table.filter-box>
-                </x-slot:options> --}}
+                </x-slot:options>
                 <x-slot:thead>
                     <tr>
                         <th>Тип</th>

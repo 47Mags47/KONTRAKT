@@ -27,6 +27,9 @@
             </div>
         @endisset
 
-        <x-form.input type="submit" title="{{ isset($submit) ? $submit : 'Отправить' }}" />
+        @if (!isset($noSbm))
+            <x-form.input type="submit" title="{{ isset($submit) ? $submit : 'Отправить' }}" />
+        @endif
+
     </form>
 </div>

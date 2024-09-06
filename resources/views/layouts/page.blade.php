@@ -16,6 +16,7 @@
 <body>
     @include('include.header')
     <div class="page-content mini-scroll">
+        <x-messages.all />
         @yield('body')
     </div>
 </body>
