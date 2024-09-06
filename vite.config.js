@@ -9,6 +9,8 @@ export default defineConfig({
             input: [
                 'resources/sass/app.sass',
                 'resources/js/app.js',
+
+                'resources/sass/pages/admin/maker.sass',
             ],
             refresh: true,
         }),

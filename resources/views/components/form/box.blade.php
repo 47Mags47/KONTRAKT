@@ -3,6 +3,7 @@
         'form-box',
         'mini-scroll'=> isset($scroll) ,
         'center' => isset($center),
+        $attributes['class']
     ])
 >
     <form
@@ -26,6 +27,6 @@
             </div>
         @endisset
 
-        <x-form.input type="submit" />
+        <x-form.input type="submit" title="{{ isset($submit) ? $submit : 'Отправить' }}" />
     </form>
 </div>

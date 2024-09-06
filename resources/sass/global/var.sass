@@ -11,8 +11,24 @@ body
 :root
     --all-transition: .5s
 
+    /* color */
+    --text-color-main: #333
+    --text-color-main-hover: #000
+    --light-text-color: #97a4b1
+    --light-text-color-hover: #fff
+
+    /* background */
+    --default-background-color: #fff
+
+    /* shadow */
+    --main-shadow: 4px 4px 12px 4px #ccc
+    --dark-shadow: 4px 4px 12px 4px #999
+
     /*Header*/
     --header-height: 50px
     --header-top-background-color: #131725
-    --header-top-color: #97a4b1
-    --header-top-color-hover: #fff
+    --header-top-color: var(--light-text-color)
+    --header-top-color-hover: var(--light-text-color-hover)
+
+    /* border */
+    --border-default: 1px solid var(--text-color-main)

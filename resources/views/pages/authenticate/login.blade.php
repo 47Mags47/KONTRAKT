@@ -2,7 +2,7 @@
 @section('page-name', 'Вход')
 
 @section('body')
-    <x-form.box action="{{ route('authenticate') }}" method="POST" header="Вход" center :w=500>
+    <x-form.box action="{{ route('authenticate') }}" method="POST" header="Вход" center :w=500 submit="Вход">
         <x-form.input name="login" label="Логин" />
         <x-form.input name="password" inp-type="password" label="Пароль"/>
     </x-form.box>
