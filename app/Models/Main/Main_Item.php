@@ -3,6 +3,7 @@
 namespace App\Models\Main;
 
 use App\Models\Glossary\Glossary_ItemCategory;
+use App\Models\Glossary\Glossary_Itemtype;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -10,6 +11,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Main_Item extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
 
     /**
      * Get the maker that owns the Item

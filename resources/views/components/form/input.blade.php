@@ -51,6 +51,7 @@
                 name="{{ isset($name) ? $name : '' }}"
                 @disabled(isset($disabled))
             >
+                <option value="0">---Не выбрано ---</option>
                 {{ $slot }}
             </select>
         </label>
@@ -71,6 +72,8 @@
                 name="{{ isset($name) ? $name : '' }}"
                 id="{{ isset($name) ? $name : '' }}"
                 @disabled(isset($disabled))
+                rows="{{ isset($rows) ? $rows : 5 }}"
+
             >{{ isset($value) ? $value : '' }}</textarea>
         </label>
     @break

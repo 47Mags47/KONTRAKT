@@ -31,20 +31,20 @@ class MakerController extends Controller
     public function store(Request $request){
         $validate = $request->validate([
             'name' => ['required', 'string', 'min:4', 'max:255'],
-            'adres' => ['required', 'string', 'min:4', 'max:255'],
-            'short_description' => ['required', 'string', 'max:300'],
-            'long_description' => ['required', 'string'],
+            'adres' => ['nullable', 'string', 'min:4', 'max:255'],
+            'short_description' => ['required', 'string', 'min:10', 'max:300'],
+            'long_description' => ['nullable', 'string', 'min:10'],
             'logo' => ['required', 'image'],
-            'link' => ['required', 'string', 'min:4', 'max:255'],
+            'link' => ['nullable', 'string', 'min:4', 'max:300'],
             'city_id' => ['required', 'notIn:0'],
         ]);
 
         $path = $request->file('logo')->store('maker-logos', 'public');
         $validate['logo'] = 'storage/' . $path;
 
-        Main_Maker::create($validate);
+        $maker = Main_Maker::create($validate);
 
-        return back()->with(['message' => 'Запись успешно добавлена']);
+        return redirect()->route('maker.show', ['maker' => $maker]) ->with(['message' => 'Запись успешно добавлена']);
     }
 
     public function show(Request $request){

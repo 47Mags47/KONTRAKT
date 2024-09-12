@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('short_description', 300);
             $table->text('long_description')->nullable();
             $table->string('logo')->nullable();
-            $table->string('link', 300);
+            $table->string('link', 300)->nullable();
 
             $table->foreignId('city_id')->constrained('glossary__cities');
 

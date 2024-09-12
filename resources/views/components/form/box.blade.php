@@ -6,9 +6,12 @@
         $attributes['class']
     ])
 >
+    @php
+        $form_method = isset($method) ? 'POST' : 'GET'
+    @endphp
     <form
         action="{{ isset($action) ? $action : '' }}"
-        method="{{ isset($method) ? $method : 'GET' }}"
+        method="{{ $form_method }}"
         id="{{ isset($id) ? $id : '' }}"
         enctype="{{ isset($files) ? 'multipart/form-data' : 'application/x-www-form-urlencoded' }}"
         style="{{isset($w) ? 'width:' . $w . 'px' : ''}}"
