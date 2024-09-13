@@ -18,8 +18,8 @@ return new class extends Migration
             $table->text('long_description');
             $table->string('link', 300)->nullable();
 
-            $table->foreignId('maker_id')->constrained('main__makers');
-            $table->foreignId('category_id')->constrained('glossary__item_categories');
+            $table->foreignId('maker_id')->constrained('main__makers')->onDelete('cascade');
+            $table->foreignId('category_id')->constrained('glossary__item_categories')->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -19,6 +19,7 @@ Route::get('/', function () {
     Route::get('/maker/create', [MakerController::class, 'create'])->name('maker.create');
     Route::post('/maker/store', [MakerController::class, 'store'])->name('maker.store');
     Route::get('/maker/{maker}/show', [MakerController::class, 'show'])->name('maker.show');
+    Route::delete('/maker/{maker}/delete', [MakerController::class, 'delete'])->name('maker.delete');
 
     Route::get('/maker/{maker}/item/create', [ItemController::class, 'create'])->name('item.create');
     Route::post('/maker/{maker}/item/store', [ItemController::class, 'store'])->name('item.store');

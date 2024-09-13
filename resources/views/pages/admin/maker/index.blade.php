@@ -70,7 +70,7 @@
                     </td>
                     <td>
                         <div class="table-button-box">
-                            <x-link.red-button href="" title="Удалить" />
+                            <x-link.red-button href="{{ route('maker.delete', ['maker'=>$maker->id]) }}" title="Удалить" />
                         </div>
                     </td>
                 </tr>

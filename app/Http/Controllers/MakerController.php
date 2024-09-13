@@ -51,4 +51,9 @@ class MakerController extends Controller
         $maker = Main_Maker::whereKey($request->maker)->first();
         return view('pages.admin.maker.show', compact('maker'));
     }
+
+    public function delete(Request $request, Main_Maker $worker){
+        $worker->delete();
+        return redirect()->route('maker.index')->with(['message' => 'Поставщик удален']);
+    }
 }
