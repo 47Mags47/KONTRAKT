@@ -4,21 +4,25 @@
 {{-- title text|Заголовок ;  --}}
 
 <li>
-    <label class="preview" for="opened_{{ $pole }}">
-        <span>{!! isset($title) ? $title : 'Заголовок' !!}</span>
+    <label class="preview" for="opened_{{ $filter['name'] }}">
+        <span>{!! $filter['preview'] !!}</span>
         <i class="fa fa-angle-down" aria-hidden="true"></i>
-        <input type="checkbox" id="opened_{{ $pole }}">
+        <input type="checkbox" id="opened_{{ $filter['name'] }}">
     </label>
     <div class="filter">
         <div class="filter-search">
-            <input type="search" placeholder="{!! isset($title) ? $title : 'Заголовок' !!}">
+            <input type="search" placeholder="{!! $filter['preview'] !!}">
         </div>
         <ul class="list mini-scroll">
-            {{-- @foreach ($items as $item)
+            @foreach ($filter['list'] as $item)
+                @php
+                    $name = $filter['name'];
+                    $value = $filter['value'];
+                @endphp
                 <li>
-                    <x-form.input inp-type="checkbox"/>
+                    <x-form.input type="table-filter" :$pole name="{{ $item->$name }}" value="{{ $item->$value }}" />
                 </li>
-            @endforeach --}}
+            @endforeach
         </ul>
     </div>
 </li>

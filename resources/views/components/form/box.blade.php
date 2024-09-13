@@ -14,7 +14,7 @@
         method="{{ $form_method }}"
         id="{{ isset($id) ? $id : '' }}"
         enctype="{{ isset($files) ? 'multipart/form-data' : 'application/x-www-form-urlencoded' }}"
-        style="{{isset($w) ? 'width:' . $w . 'px' : ''}}"
+        {{-- style="{{ isset($w) ? 'width:' . $w . 'px' : 'auto' }}" --}}
     >
         @csrf
         @isset($method)

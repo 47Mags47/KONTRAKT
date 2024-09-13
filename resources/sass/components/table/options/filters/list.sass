@@ -1,0 +1,29 @@
+.table-box .table-options .filter-box li .filter
+    position: absolute
+    top: 40px
+    right: 0
+    width: auto
+
+    border-radius: 7px
+    z-index: 10
+    background: var(--default-background-color)
+    box-shadow: var(--dark-shadow)
+
+    display: none
+
+    div.filter-search
+        padding: 10px 5px 5px 5px
+    ul.list
+        max-height: 350px
+        overflow-y: auto
+        li
+            box-shadow: none
+            label
+                padding: 5px
+                cursor: pointer
+                transition: var(--all-transition)
+                span
+                    font-size: .9rem
+                &:hover
+                    background: var(--default-background-color-hover)
+

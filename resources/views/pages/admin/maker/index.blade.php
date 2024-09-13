@@ -2,7 +2,13 @@
 @section('page-name', 'Поставщик')
 
 @section('body')
-    <x-table.table create-link="{{ route('maker.create') }}" :options="['add']" add-link="{{ route('maker.create') }}">
+    <x-table.table
+        create-link="{{ route('maker.create') }}"
+        :options="['search', 'add', 'filter']"
+        :$filters
+        search-link="{{ route('maker.index') }}"
+        add-link="{{ route('maker.create') }}"
+    >
         <x-slot:colgroup>
             <col width="200px"> <!-- Город -->
             <col> <!-- Наименование -->

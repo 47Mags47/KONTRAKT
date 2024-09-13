@@ -21,7 +21,7 @@ class ItemController extends Controller
     {
         $validate = $request->validate([
             'category_id' => ['notIn:0'],
-            'name' => ['required', 'min:6', 'max:255'],
+            'name' => ['required', 'min:4', 'max:255'],
             'link' => ['nullable', 'url:http,https'],
             'short_description' => ['required', 'min:5', 'max:255'],
             'long_description' => ['min:30']

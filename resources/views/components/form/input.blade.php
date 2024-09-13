@@ -11,6 +11,18 @@
             <x-form.input type="submit" content="X" title="Поиск"/>
         </label>
     @break
+    @case('table-filter')
+        <label for="{{ $pole . "[" . $value . "]" }}" class="table-filter-box">
+            <input
+                type="checkbox"
+                name='{{ $pole . "[" . $value . "]" }}'
+                id="{{ $pole . "[" . $value . "]" }}"
+                value="{{ $value }}"
+                @checked(isset($checked))
+            >
+            <span>{{ $name }}</span>
+        </label>
+    @break
     @case('submit')
         <input type="submit" class="button blue-button" value="{{ isset($title) ? $title : 'Отправить' }}">
     @break

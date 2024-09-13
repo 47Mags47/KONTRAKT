@@ -3,7 +3,7 @@
         <div class="table-options">
             <div class="search-box">
                 @if (in_array('search', $options))
-                    <x-form.box action="" method="POST" submit="Поиск">
+                    <x-form.box action="{{ $searchLink }}" submit="Поиск">
                         <x-form.input name="search" />
                     </x-form.box>
                 @endif
@@ -14,11 +14,13 @@
                 @endif
             </div>
             <ul class="filter-box">
-                @isset($filters)
-                    @foreach ($filters as $filter)
-                        <x-table.filter title="Город" pole="city" />
-                    @endforeach
-                @endisset
+                @if (in_array('filter', $options))
+                    <x-form.box action="" submit="Применить">
+                        @foreach ($filters as $pole => $filter)
+                            <x-table.filter :$filter pole="{{ $pole }}" />
+                        @endforeach
+                    </x-form.box>
+                @endif
             </ul>
         </div>
     @endif

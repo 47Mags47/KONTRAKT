@@ -2,7 +2,7 @@
 @section('page-name', 'Item')
 
 @section('body')
-    <x-form.box action="{{ route('item.store', ['maker' => $maker]) }}" method="POST" header="Добавление" center>
+    <x-form.box action="{{ route('item.store', ['maker' => $maker]) }}" method="POST" header="Добавление улсуги или товара" submit="Сохранить" center>
         <x-form.input name="type_id" type="select" label="Тип">
             @foreach ($types as $type)
                 <option value="{{ $type->id }}" @selected(old('type_id') == $type->id)>{!! $type->name !!}</option>

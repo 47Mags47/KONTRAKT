@@ -8,27 +8,53 @@ use Illuminate\Http\Request;
 
 class MakerController extends Controller
 {
-    private $maker, $items;
-
-    private function makerData($maker_id){
-
-    }
-
-    private function items(){
+    private function makerData($maker_id)
+    {
 
     }
 
-    public function index(){
-        $makers = Main_Maker::get();
-        return view('pages.admin.maker.index', compact('makers'));
+    private function items()
+    {
+
     }
 
-    public function create(){
+    private function getFilers()
+    {
+        return [
+            'city_id' => [
+                'preview' => 'город',
+                'list' => Glossary_City::orderBy('name')->get(),
+                'name' => 'name',
+                'value' => 'id'
+            ]
+        ];
+    }
+
+    public function index(Request $request)
+    {
+        $makers = Main_Maker::whereNotNull('id');
+        if ($request->search) {
+            $makers->where(function ($query) use ($request) {
+                $query->whereLike('name', $request->search)
+                    ->orWhereLike('short_description', $request->search)
+                    ->orWhereLike('long_description', $request->search);
+            });
+        }
+
+        $makers->orderBy('name')->get();
+
+        $filters = $this->getFilers();
+        return view('pages.admin.maker.index', compact('makers', 'filters'));
+    }
+
+    public function create()
+    {
         $cityes = Glossary_City::orderBy('name')->get();
         return view('pages.admin.maker.create', compact('cityes'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $validate = $request->validate([
             'name' => ['required', 'string', 'min:4', 'max:255'],
             'adres' => ['nullable', 'string', 'min:4', 'max:255'],
@@ -44,16 +70,18 @@ class MakerController extends Controller
 
         $maker = Main_Maker::create($validate);
 
-        return redirect()->route('maker.show', ['maker' => $maker]) ->with(['message' => 'Запись успешно добавлена']);
+        return redirect()->route('maker.show', ['maker' => $maker])->with(['message' => 'Запись успешно добавлена']);
     }
 
-    public function show(Request $request){
+    public function show(Request $request)
+    {
         $maker = Main_Maker::whereKey($request->maker)->first();
         return view('pages.admin.maker.show', compact('maker'));
     }
 
-    public function delete(Request $request, Main_Maker $worker){
-        $worker->delete();
+    public function delete(Main_Maker $maker)
+    {
+        $maker->delete();
         return redirect()->route('maker.index')->with(['message' => 'Поставщик удален']);
     }
 }
