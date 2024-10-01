@@ -38,7 +38,7 @@
             </x-split.box>
         </x-form.box>
         <div class="items">
-            <x-table.table :options="['search', 'add']" add-link="{{ route('item.create', ['maker' => $maker->id]) }}">
+            <x-table.table :options="['add']" add-link="{{ route('item.create', ['maker' => $maker->id]) }}">
                 <x-slot:thead>
                     <tr>
                         <th>Тип</th>

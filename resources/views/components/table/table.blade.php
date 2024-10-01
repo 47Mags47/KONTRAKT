@@ -2,8 +2,8 @@
     @if (isset($options))
         <div class="table-options">
             <div class="search-box">
-                @if (in_array('search', $options))
-                    <x-form.box action="{{ $searchLink }}" submit="Поиск">
+                @if (isset($options) and in_array('search', $options))
+                    <x-form.box action="{{ $options['search'] }}" submit="Поиск">
                         <x-form.input name="search" />
                     </x-form.box>
                 @endif

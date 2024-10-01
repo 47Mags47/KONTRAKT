@@ -4,9 +4,8 @@
 @section('body')
     <x-table.table
         create-link="{{ route('maker.create') }}"
-        :options="['search', 'add', 'filter']"
+        :options="['add', 'filter']"
         :$filters
-        search-link="{{ route('maker.index') }}"
         add-link="{{ route('maker.create') }}"
     >
         <x-slot:colgroup>

@@ -41,7 +41,7 @@ class MakerController extends Controller
             });
         }
 
-        $makers->orderBy('name')->get();
+        $makers = $makers->orderBy('name')->get();
 
         $filters = $this->getFilers();
         return view('pages.admin.maker.index', compact('makers', 'filters'));
