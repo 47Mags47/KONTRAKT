@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('glossary__itemtypes', function (Blueprint $table) {
+        Schema::create('glossary__item_types', function (Blueprint $table) {
             $table->id();
             $table->string('name');
         });
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('glossary__itemtypes');
+        Schema::dropIfExists('glossary__item_types');
     }
 };

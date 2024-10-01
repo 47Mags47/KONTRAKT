@@ -5,7 +5,7 @@ namespace App\Console\Commands\db;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
-class backup extends Command
+class Backup extends Command
 {
     /**
      * The name and signature of the console command.
@@ -29,7 +29,7 @@ class backup extends Command
         $this->info('Сохранение дампа БД');
 
         $date = now()->format('Y-m-d');
-        $local_path = "backup/$date/$date-full.sql";
+        $local_path = "backup/$date-full.sql";
         Storage::put($local_path, '');
 
         $path = Storage::path($local_path);

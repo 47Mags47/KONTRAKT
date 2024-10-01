@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('glossary__item_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('type_id')->constrained('glossary__itemtypes')->onDelete('cascade');
+            $table->foreignId('type_id')->constrained('glossary__item_types')->onDelete('cascade');
             $table->foreignId('parent_id')->nullable()->constrained('glossary__item_categories')->onDelete('cascade');
         });
     }
