@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('glossary__divisions', function (Blueprint $table) {
+        Schema::create('glossary__city', function (Blueprint $table) {
             $table->string('code')->primary();
             $table->string('name');
         });
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('glossary__divisions');
+        Schema::dropIfExists('glossary__city');
     }
 };

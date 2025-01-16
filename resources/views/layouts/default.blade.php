@@ -10,21 +10,21 @@
     ################################################## --}}
     <title>{{ env('APP_NAME') }} - @yield('page-name')</title>
 
-    {{-- ### Подключаем стили
-    ################################################## --}}
-    @vite('resources/sass/app.sass')
-
-    {{-- ### Подключаем Библиотеки
-    ################################################## --}}
-    @vite('resources/js/fontAwesome.js')
-
     {{-- ### Подключаем скрипты
     ################################################## --}}
     @vite('resources/js/app.js')
+
+    {{-- ### Подключаем стили
+    ################################################## --}}
+    @vite('resources/sass/app.sass')
+    @stack('styles')
 </head>
 
 <body>
-    @yield('content')
+    @include('includes/header')
+    <section class="content">
+        @yield('content')
+    </section>
 </body>
 
 </html>

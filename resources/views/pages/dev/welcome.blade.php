@@ -26,6 +26,17 @@
     <h2>В настоящее время портал находиться в разработке</h2>
 
     <div>
+        <h4>Информация о проекте</h4>
+        <p>
+            Данная площадка разрабатывается одним единственным разработчиком и имеет открытый код (возможно будет изменено в будующем) <br><br>
+
+            Любая помощь приветсвуется <br>
+            Страница на GitHub: <a href="https://github.com/47Mags47/kontrakt">https://github.com/47Mags47/kontrakt</a> <br>
+            Почта разработчика <a href="mailto:gordienko@dsznko.ru" type="email">gordienko@dsznko.ru</a>
+        </p>
+    </div>
+
+    <div>
         <h4>Этапы разработки</h4>
         <ul style="list-style: none">
             <li>✅ Базовая настройка</li>
@@ -42,9 +53,9 @@
         <h4>Ссылки на страницы:</h4>
         <ul style="list-style: none">
             <li>❌ <a href="">admin - maker - index</a></li>
-            <li>❌ <a href="">admin - maker - create</a></li>
-            <li>❌ <a href="">admin - maker - store</a></li>
-            <li>❌ <a href="">admin - maker - show</a></li>
+            <li>✅ <a href="">admin - maker - create</a></li>
+            <li>✅ <a href="">admin - maker - store</a></li>
+            <li>🔁 <a href="{{ route('admin.maker.show') }}">admin - maker - show</a></li>
             <li>❌ <a href="">admin - maker - edit</a></li>
             <li>❌ <a href="">admin - maker - update</a></li>
             <li>❌ <a href="">admin - maker - destroy</a></li>

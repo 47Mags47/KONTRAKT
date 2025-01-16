@@ -27,7 +27,7 @@ export default defineConfig({
         port: 5173,
         strictPort: true,
         hmr: {
-            host: env.APP_HOST,
+            host: env.VITE_ASSET_HOST,
             port: 5173,
         },
     },

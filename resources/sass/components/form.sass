@@ -1,0 +1,20 @@
+.default-form
+    display: flex
+    flex-direction: column
+    gap: 1rem
+    label.form-select-label,
+    label.form-input-label
+        display: flex
+        flex-direction: column
+        gap: 5px
+        padding: 5px 0
+        span
+            padding-left: 1rem
+            color: #666
+            font-weight: bold
+            font-size: .9rem
+    &.default-form-show
+        label
+            input
+                color: #333
+                border-color: #eee
