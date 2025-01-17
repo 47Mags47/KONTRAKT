@@ -12,7 +12,7 @@
 
 @isset($label)
     <label class="form-input-label">
-        <span>{{ $label }}</span>
+        <span class="label-text">{{ $label }}</span>
     @endisset
 
     <textarea

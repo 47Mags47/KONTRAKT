@@ -6,12 +6,16 @@
     |‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|
     | label              | Нет          | Тествое наименование поля         |
     | form               | Нет          | Закрепляет ввод к форме           |
+    | info               | Нет          | Комментарий                       |
     |____________________|______________|___________________________________|
 
 --}}
 
-<div class="list-adder-box">
-    <span>{{ $label }}</span>
+<div @class([
+    'list-adder-box'
+])>
+    <span class="label-text">{{ $label }}</span>
+    <span class="info">{{ $info ?? '' }}</span>
     <div class="add-box">
         <input type="text">
         <button type="button" class="button blue-button">Добавить</button>

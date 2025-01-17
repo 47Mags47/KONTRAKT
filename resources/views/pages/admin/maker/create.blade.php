@@ -16,7 +16,7 @@
                 <x-input.change-image
                     class="profile-logo"
                     name="logo"
-                    :preview="asset('storage/media/1000.jpeg')"
+                    :preview="asset('storage/media/maker/default_logo.png')"
                     value=""
                     form="profile-info-form"
                 />

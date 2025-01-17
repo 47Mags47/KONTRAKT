@@ -20,18 +20,15 @@ class MakerController extends Controller
 
     public function store(Request $request){
         $validated = $request->validate([
-            'logo' => ['nullable', 'image'],
+            'logo' => ['required', 'image'],
             'city_code' => ['required', 'exists:' . City::getTableName() . ',code'],
             'name' => ['required', 'string', 'min:4', 'max:255'],
             'address' => ['required'],
-            'description' => ['required', 'string', 'min:4', 'max:255'],
+            'description' => ['required', 'string', 'min:4', 'max:10000'],
             'links' => ['nullable', 'array'],
             'links.*' => ['nullable', 'url']
         ]);
-
-        if($request->has('logo')){
-            $validated['logo'] = $request->file('logo')->store('media/maker');
-        }
+        $validated['logo'] = $request->file('logo')->store('media/maker');
 
         $maker = Maker::create($validated);
 

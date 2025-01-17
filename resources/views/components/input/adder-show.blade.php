@@ -6,12 +6,15 @@
     |‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾‾‾‾‾|‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾|
     | label              | Нет          | Тествое наименование поля         |
     | items              | []           | Массив элементов                  |
+    | info               | Нет          | Комментарий                       |
     |____________________|______________|___________________________________|
 
 --}}
 
 <div class="list-adder-box">
-    <span>{{ $label }}</span>
+    <span class="label-text">{{ $label }}</span>
+    <span class="info">{{ $info ?? '' }}</span>
+
     <ul class="item-list">
         @foreach ($items ?? [] as $item)
             <li class="example-item">
