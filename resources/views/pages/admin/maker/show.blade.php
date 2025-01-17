@@ -8,11 +8,11 @@
 @section('content')
     <div class="profile-box">
         <x-nav-list.box>
-            <x-nav-list.item text="Профиль"             ico="fa-solid fa-user"                  link="#info-box" active />
-            <x-nav-list.item text="Товары"              ico="fa-solid fa-box"                   link="#product-box"         disabled />
-            <x-nav-list.item text="Услуги"              ico="fa-solid fa-bell-concierge"        link="#service-box"         disabled />
-            <x-nav-list.item text="Статистика"          ico="fa-solid fa-square-poll-vertical"  link="#statistic-box"       disabled />
-            <x-nav-list.item text="Администрирование"   ico="fa-solid fa-screwdriver-wrench"    link="#administration-box"  disabled />
+            <x-nav-list.item text="Профиль"             ico="fa-solid fa-user"                  link="#info-box"            active  />
+            <x-nav-list.item text="Товары"              ico="fa-solid fa-box"                   link="#product-box"                 />
+            <x-nav-list.item text="Услуги"              ico="fa-solid fa-bell-concierge"        link="#service-box"                 />
+            <x-nav-list.item text="Статистика"          ico="fa-solid fa-square-poll-vertical"  link="#statistic-box"               />
+            <x-nav-list.item text="Администрирование"   ico="fa-solid fa-screwdriver-wrench"    link="#administration-box"          />
         </x-nav-list.box>
 
         <div class="sectional-list">
@@ -54,12 +54,6 @@
                         <a href="">
                             <i class="fa-solid fa-plus"></i>
                         </a>
-                    </li>
-                    <li>
-                        <div class="image-box">
-                            <img src="{{ asset('storage/media/1000.jpeg') }}" alt="">
-                        </div>
-                        <a href="" class="button blue-button">Перейти</a>
                     </li>
                 </ul>
             </div>

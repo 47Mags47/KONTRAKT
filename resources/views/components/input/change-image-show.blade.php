@@ -13,4 +13,9 @@
     <div class="preview">
         <img src="{{ $preview }}" alt="image">
     </div>
+    @isset($button)
+        <label class="change-image-label">
+            <a class="button blue-button" href="{{ isset($link) ? $link : '' }}">{{ $button }}</a>
+        </label>
+    @endisset
 </div>

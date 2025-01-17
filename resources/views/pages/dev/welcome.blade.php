@@ -38,6 +38,7 @@
 
     <div>
         <h4>Этапы разработки</h4>
+
         <ul style="list-style: none">
             <li>✅ Базовая настройка</li>
             <li>❌ Панель поставщика</li>
@@ -55,6 +56,12 @@
         </div>
 
         <h4>Ссылки на страницы:</h4>
+
+        <ul style="list-style: none">
+            <li>❌ <a href="">Главная страница</a></li>
+            <li>🔁 <a href="">Главная страница - Поставщики</a></li>
+        </ul>
+
         <ul style="list-style: none">
             <li>❌ <a href="">maker - index</a></li>
             <li>❌ <a href="">maker - index - admin</a></li>
