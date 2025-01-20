@@ -1,0 +1,38 @@
+.comment-box
+    width: 1200px
+    display: grid
+    grid-auto-flow: column
+    grid-template-columns: 350px auto
+    gap: 1rem
+    padding: 1rem
+
+    position: relative
+    .comment-form
+        position: sticky
+        top: 0
+        input[type="submit"]
+            float: right
+    .comment-list
+        display: flex
+        flex-direction: column
+        gap: 1rem
+        li
+            border: 1px solid #ddd
+            padding: 1rem
+            border-radius: 1rem
+            .user-box
+                display: grid
+                grid-template-columns: auto 100px
+                span.FIO
+                    font-size: 1rem
+                    font-weight: bold
+                    color: #333
+                .stars-box
+                    display: flex
+                    justify-content: space-between
+                    svg
+                        color: #fda400
+            p.comment
+                padding-top: .5rem
+                font-size: .9rem
+                text-indent: .5rem

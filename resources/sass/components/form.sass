@@ -1,0 +1,31 @@
+.form
+    label.form-select-label,
+    label.form-input-label
+        display: grid
+        grid-template-areas: 'A B' 'C C'
+        gap: 5px
+        padding: 5px 0
+        &.req span.label-text::after
+            content: '*'
+            color: red
+            font-size: 1rem
+            padding-left: 3px
+        span.label-text
+            grid-area: A
+            padding-left: 1rem
+            color: #666
+            font-weight: bold
+            font-size: .9rem
+        span.info
+            grid-area: B
+            font-size: .6rem
+            text-align: left
+            color: #666
+            font-weight: bold
+        input, select, textarea
+            grid-area: C
+
+.default-form
+    display: flex
+    flex-direction: column
+    gap: 1rem
