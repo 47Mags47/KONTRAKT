@@ -10,12 +10,13 @@ use Illuminate\Http\Request;
 class MakerController extends Controller
 {
     public function index(){
-
+        $makers = Maker::paginate(50);
+        return view('pages.maker.index', compact('makers'));
     }
 
     public function create(){
         $cityes = City::all();
-        return view('pages.admin.maker.create', compact('cityes'));
+        return view('pages.maker.create', compact('cityes'));
     }
 
     public function store(Request $request){
@@ -36,7 +37,7 @@ class MakerController extends Controller
     }
 
     public function show(Maker $maker){
-        return view('pages.admin.maker.show', compact('maker'));
+        return view('pages.maker.show', compact('maker'));
     }
 
     public function edit(){

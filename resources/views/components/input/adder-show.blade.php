@@ -17,7 +17,7 @@
 
     <ul class="item-list">
         @foreach ($items ?? [] as $item)
-            <li class="example-item">
+            <li>
                 <span>{{ $item }}</span>
             </li>
         @endforeach

@@ -16,6 +16,10 @@ Route::get('/palette', function () {
     return view('pages.dev.palette');
 });
 
+Route::prefix('/makers')->group(function(){
+    Route::get('/index', [MakerController::class, 'index'])->name('maker.index');
+});
+
 Route::prefix('/admin')->group(function(){
     Route::prefix('/makers')->group(function(){
         Route::get('/create', [MakerController::class, 'create'])->name('admin.maker.create');

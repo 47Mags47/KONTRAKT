@@ -4,11 +4,12 @@ namespace App\Models\Main;
 
 use App\Models\Glossary\City;
 use App\Models\Traits\Named;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Maker extends Model
 {
-    use Named;
+    use Named, HasFactory;
 
     ### Настройки
     ##################################################

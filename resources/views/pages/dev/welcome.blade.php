@@ -59,7 +59,7 @@
 
         <ul style="list-style: none">
             <li>❌ <a href="">Главная страница</a></li>
-            <li>🔁 <a href="">Главная страница - Поставщики</a></li>
+            <li>🔁 <a href="{{ route('maker.index') }}">Главная страница - Поставщики</a></li>
         </ul>
 
         <ul style="list-style: none">
