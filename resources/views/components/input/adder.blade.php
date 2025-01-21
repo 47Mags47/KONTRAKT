@@ -31,7 +31,7 @@
                 @isset($form)   form="{{ $form }}"      @endisset>
             <i class="fa-solid fa-xmark"></i>
         </li>
-        @foreach ($list ?? [] as $id => $item)
+        @foreach (old($name) ?? (isset($list) ? $list : []) as $id => $item)
             <li>
                 @if (isset($link))
                     <a href="{{ $item }}">{{ $item }}</a>

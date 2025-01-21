@@ -21,8 +21,10 @@ class MakerController extends Controller
     }
 
     public function store(Request $request){
+        session()->put('logo', $request->file('logo')->store('tmp'));
+
         $validated = $request->validate([
-            'logo' => ['required', 'image'],
+            'logo' => ['nullable', 'image'],
             'city_code' => ['required', 'exists:' . City::getTableName() . ',code'],
             'name' => ['required', 'string', 'min:4', 'max:255'],
             'address' => ['required'],
@@ -31,8 +33,11 @@ class MakerController extends Controller
             'links.*' => ['nullable', 'url'],
             'comment' => ['nullable', 'string', 'min:4', 'max:10000'],
         ]);
-        $validated['logo'] = $request->file('logo')->store('media/maker');
 
+        $file_name = basename(session('logo'));
+        Storage::disk('public')->move(session('logo'), 'media/maker/' . $file_name);
+
+        $validated['logo'] = 'media/maker/' . $file_name;
         $maker = Maker::create($validated);
 
         return redirect()->route('admin.maker.show', compact('maker'));

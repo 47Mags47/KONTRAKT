@@ -16,7 +16,7 @@
                 <x-input.change-image
                     class="profile-logo"
                     name="logo"
-                    :preview="asset('storage/media/maker/default_logo.png')"
+                    {{-- :preview="asset('storage/media/maker/default_logo.png')" --}}
                     value=""
                     form="profile-info-form"
                 />
@@ -31,14 +31,18 @@
                 >
                     <x-input.select         name="city_code"    label="Город">
                         @foreach ($cityes as $city)
-                            <option value="{{ $city->code }}">{{ $city->name }}</option>
+                            <option value="{{ $city->code }}"
+                                @if (old('city_code') == $city->code) selected @endif>
+                                {{ $city->name }}
+                            </option>
                         @endforeach
                     </x-input.select>
                     <x-input.text           name="name"         label="Наименование"        req />
                     <x-input.text           name="address"      label="Адрес"               req />
                     <x-input.textarea       name="description"  label="Описание"            req />
                     <x-input.adder          name="links"        label="Ссылки на соц. сети"     />
-                    <x-input.textarea       name="comment"      label="Комментарий"         ph="Комментарий для администраторов (пользователи его не увидят)"/>
+                    <x-input.textarea       name="comment"      label="Комментарий"
+                        ph="Комментарий для администраторов (пользователи его не увидят)"/>
                 </x-form.default>
             </div>
         </div>

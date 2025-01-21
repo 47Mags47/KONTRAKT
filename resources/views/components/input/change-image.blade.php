@@ -13,7 +13,14 @@
 
 <x-form.default class="{{ 'change-image-box ' . $attributes['class'] }}">
     <div class="preview">
-        <img src="{{ $preview }}" alt="{{ $name }}">
+        @if (session($name) === null and isset($preview) === false)
+            <img src="" alt="">
+            <div class="placeholder-box">
+                Выберите изображение
+            </div>
+        @else
+            <img src="{{ session($name) !== null ? asset('storage/' . session()->pull($name)) : $preview }}" alt="">
+        @endif
     </div>
     <label for="{{ $name }}" class="change-image-label">
         <span class="button blue-button">Изменить фото</span>

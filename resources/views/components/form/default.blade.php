@@ -37,7 +37,7 @@
 @endif
 
 @if (isset($errorShow) and $errors->any())
-    <ul>
+    <ul class="form-errors-box">
         @foreach ($errors->all() as $message)
             <li>{{ $message }}</li>
         @endforeach

@@ -35,6 +35,7 @@
         @required(isset($req))
         @disabled(isset($disable))
     >
+        <option value="0">--- Не выбранно ---</option>
         {{ $slot }}
     </select>
 

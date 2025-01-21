@@ -31,7 +31,7 @@
         type        ="{{ isset($type) ? $type : 'text' }}"
         name        ="{{ $name }}"
         id          ="{{ $name }}"
-        value       ="{{ isset($value) ? $value : '' }}"
+        value       ="{{ old($name) ?? (isset($value) ? $value : '') }}"
 
         @isset($form)   form="{{ $form }}"      @endisset
         @isset($ph)     placeholder="{{ $ph }}" @endisset
