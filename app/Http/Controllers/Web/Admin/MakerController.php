@@ -21,6 +21,7 @@ class MakerController extends Controller
     }
 
     public function store(Request $request){
+        if($request->file('logo') === null and session('logo') === null) return back()->withErrors('Поле "Логотип" обязательно для заполнения');
         session()->put('logo', $request->file('logo')->store('tmp'));
 
         $validated = $request->validate([
@@ -34,8 +35,8 @@ class MakerController extends Controller
             'comment' => ['nullable', 'string', 'min:4', 'max:10000'],
         ]);
 
-        $file_name = basename(session('logo'));
-        Storage::disk('public')->move(session('logo'), 'media/maker/' . $file_name);
+        $file_name = basename(session()->pull('logo'));
+        Storage::disk('public')->move('tmp/' . $file_name, 'media/maker/' . $file_name);
 
         $validated['logo'] = 'media/maker/' . $file_name;
         $maker = Maker::create($validated);
@@ -52,6 +53,8 @@ class MakerController extends Controller
     }
 
     public function update(Request $request, Maker $maker){
+        if($request->file('logo') !== null) session()->put('logo', $request->file('logo')->store('tmp'));
+
         $validated = $request->validate([
             'logo' => ['nullable', 'image'],
             'name' => ['required', 'string', 'min:4', 'max:255'],
@@ -61,8 +64,18 @@ class MakerController extends Controller
             'links.*' => ['nullable', 'url'],
             'comment' => ['nullable', 'string', 'min:4', 'max:10000'],
         ]);
-        $validated['logo'] = $request->file('logo')->store('media/maker');
-        $maker->update($validated);
+
+        if(session('logo') !== null) {
+            $file_name = basename(session()->pull('logo'));
+            Storage::disk('public')->move('tmp/' . $file_name, 'media/maker/' . $file_name);
+            $maker->logo = 'media/maker/' . $file_name;
+        }
+        if($validated['name'] !== null) $maker->name = $validated['name'];
+        if($validated['address'] !== null) $maker->address = $validated['address'];
+        if($validated['description'] !== null) $maker->description = $validated['description'];
+        if($validated['links'] !== null) $maker->links = $validated['links'];
+        if($validated['comment'] !== null) $maker->comment = $validated['comment'];
+        $maker->save();
 
         return redirect()->route('admin.maker.show', compact('maker'));
     }

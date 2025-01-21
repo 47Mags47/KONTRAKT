@@ -15,6 +15,7 @@ INPUT.on('input', function(e){
         e.preventDefault
         alert('Загружаемый файл не является изображением')
         $(this)[0].files = []
+        $(this).val()
         return
     }
 

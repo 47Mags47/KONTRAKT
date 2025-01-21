@@ -75,8 +75,8 @@
             <br>
             <li>✅ <a href="{{ route('admin.maker.create') }}">maker - create - admin</a></li>
             <li>✅ <a href="">maker - store- admin</a></li>
-            <li>❌ <a href="">maker - edit- admin</a></li>
-            <li>❌ <a href="">maker - update- admin</a></li>
+            <li>✅ <a href="">maker - edit- admin</a></li>
+            <li>✅ <a href="">maker - update- admin</a></li>
             <li>❌ <a href="">maker - destroy- admin</a></li>
         </ul>
 
