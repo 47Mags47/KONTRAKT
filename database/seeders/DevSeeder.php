@@ -14,6 +14,7 @@ class DevSeeder extends Seeder
      */
     public function run(): void
     {
+
         $maker = Maker::create([
             'id' => 1,
             'city_code' => '001',
@@ -21,7 +22,11 @@ class DevSeeder extends Seeder
             'address' => 'ул. Пушкина, д. 47',
             'description' => 'Тестовый поставщик услуг и товаров',
             'logo' => 'media/maker/default_logo.png',
-            'comment' => 'Тестовый поставщик услуг и товаров'
+            'comment' => 'Тестовый поставщик услуг и товаров',
+            'links' => [
+                fake()->url(),
+                fake()->url(),
+            ]
         ]);
 
         $product = Product::create([

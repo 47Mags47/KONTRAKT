@@ -12,16 +12,17 @@ ADD_BUTTON.on('click', function(){
     item.find('span').text(ADD_INPUT.val())
     item.find('input').prop('disabled', false)
     item.find('input').val(ADD_INPUT.val())
-    item.find('svg').on('click', function(){
-        $(this).parent().remove()
-        setName()
-    })
+    item.find('svg').on('click', setItemEvent)
     LIST.append(item)
     setName()
 
     ADD_INPUT.val('')
 })
 
+function setItemEvent(){
+    $(this).parent().remove()
+    setName()
+}
 
 function setName(){
     let name = LIST.find('li.example-item input').attr('name')
@@ -29,3 +30,7 @@ function setName(){
         $(this).attr('name', `${name}[${i}]`)
     })
 }
+
+LIST.find('li:not(.example-item) svg').each(function(){
+    $(this).on('click', setItemEvent)
+})

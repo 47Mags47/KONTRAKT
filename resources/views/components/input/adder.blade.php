@@ -31,5 +31,22 @@
                 @isset($form)   form="{{ $form }}"      @endisset>
             <i class="fa-solid fa-xmark"></i>
         </li>
+        @foreach ($list ?? [] as $id => $item)
+            <li>
+                @if (isset($link))
+                    <a href="{{ $item }}">{{ $item }}</a>
+                @else
+                    <span>{{ $item }}</span>
+                @endif
+
+                <input
+                    type="text"
+                    value="{{ $item }}"
+                    name="{{ $name }}[{{ $id }}]"
+                    @isset($form)   form="{{ $form }}"      @endisset
+                >
+                <i class="fa-solid fa-xmark"></i>
+            </li>
+        @endforeach
     </ul>
 </div>

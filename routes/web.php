@@ -26,6 +26,8 @@ Route::prefix('/admin')->group(function(){
         Route::post('/store', [MakerController::class, 'store'])->name('admin.maker.store');
         Route::prefix('/{maker}')->group(function(){
             Route::get('/show', [MakerController::class, 'show'])->name('admin.maker.show');
+            Route::get('/edit', [MakerController::class, 'edit'])->name('admin.maker.edit');
+            Route::put('/update', [MakerController::class, 'update'])->name('admin.maker.update');
         });
     });
 

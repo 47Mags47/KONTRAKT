@@ -33,7 +33,7 @@
 @endif
 
 @if (isset($method) and strtoupper($method) !== 'GET')
-    @method($method)
+    @method(strtoupper($method))
 @endif
 
 @if (isset($errorShow) and $errors->any())

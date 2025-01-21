@@ -18,7 +18,11 @@
     <ul class="item-list">
         @foreach ($items ?? [] as $item)
             <li>
-                <span>{{ $item }}</span>
+                @if (isset($link))
+                    <a href="{{ $item }}">{{ $item }}</a>
+                @else
+                    <span>{{ $item }}</span>
+                @endif
             </li>
         @endforeach
     </ul>

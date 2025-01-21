@@ -33,7 +33,7 @@
 
         @required(isset($req))
         @disabled(isset($disable))
-    ></textarea>
+    >{{ isset($value) ? $value : '' }}</textarea>
 
     @isset($label)
     </label>

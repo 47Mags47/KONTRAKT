@@ -17,13 +17,13 @@
 
         <div class="sectional-list">
             <div class="info-box" id="info-box">
-                <x-input.change-image-show class="profile-logo" :preview="asset('/storage/' . $maker->logo)" />
+                <x-input.change-image-show class="profile-logo" :preview="asset('/storage/' . $maker->logo)" button="Редактировать" :link="route('admin.maker.edit', compact('maker'))" />
                 <x-form.default-show class="profile-info-box" header="Профиль поставщика">
                     <x-input.text-show      label="Город"               :value="$maker->city->name" />
                     <x-input.text-show      label="Наименование"        :value="$maker->name" />
                     <x-input.text-show      label="Адрес"               :value="$maker->adres" />
                     <x-input.textarea-show  label="Описание"            :value="$maker->description" />
-                    <x-input.adder-show     label="Ссылки на соц. сети" :items="$maker->links"/>
+                    <x-input.adder-show     label="Ссылки на соц. сети" :items="$maker->links" link/>
                     <x-input.textarea-show  label="Комментарий"         :value="$maker->comment" />
                 </x-form.default-show>
             </div>

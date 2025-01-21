@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Glossary\City;
 use App\Models\Main\Maker;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MakerController extends Controller
 {
@@ -27,7 +28,8 @@ class MakerController extends Controller
             'address' => ['required'],
             'description' => ['required', 'string', 'min:4', 'max:10000'],
             'links' => ['nullable', 'array'],
-            'links.*' => ['nullable', 'url']
+            'links.*' => ['nullable', 'url'],
+            'comment' => ['nullable', 'string', 'min:4', 'max:10000'],
         ]);
         $validated['logo'] = $request->file('logo')->store('media/maker');
 
@@ -40,12 +42,24 @@ class MakerController extends Controller
         return view('pages.maker.show', compact('maker'));
     }
 
-    public function edit(){
-
+    public function edit(Maker $maker){
+        return view('pages.maker.edit', compact('maker'));
     }
 
-    public function update(){
+    public function update(Request $request, Maker $maker){
+        $validated = $request->validate([
+            'logo' => ['nullable', 'image'],
+            'name' => ['required', 'string', 'min:4', 'max:255'],
+            'address' => ['required'],
+            'description' => ['required', 'string', 'min:4', 'max:10000'],
+            'links' => ['nullable', 'array'],
+            'links.*' => ['nullable', 'url'],
+            'comment' => ['nullable', 'string', 'min:4', 'max:10000'],
+        ]);
+        $validated['logo'] = $request->file('logo')->store('media/maker');
+        $maker->update($validated);
 
+        return redirect()->route('admin.maker.show', compact('maker'));
     }
 
     public function destroy(){
