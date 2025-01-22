@@ -26,9 +26,9 @@
         <x-nav-list.box>
             <p class="box-header">Навигация</p>
             <x-nav-list.item text="Коментарии" ico="fa-solid fa-message" link="#product-comment-header" active/>
-            <x-nav-list.item text="Кнопки" ico="fa-solid fa-message" link="#buttons" />
-            <x-nav-list.item text="Формы" ico="fa-solid fa-message" link="#form-element" />
-            <x-nav-list.item text="Дополнительные компоненты форм" ico="fa-solid fa-message" link="#other-form-elements" />
+            <x-nav-list.item text="Кнопки" ico="fa-solid fa-mobile-button" link="#buttons" />
+            <x-nav-list.item text="Формы" ico="fa-solid fa-align-justify" link="#form-element" />
+            <x-nav-list.item text="Дополнительные компоненты форм" ico="fa-solid fa-align-justify" link="#other-form-elements" />
         </x-nav-list.box>
 
         <div class="content-box">
