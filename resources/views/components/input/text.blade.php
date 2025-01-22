@@ -25,7 +25,11 @@
         <span class="label-text">{{ $label }}</span>
     @endisset
 
-    <span class="info">{{ $info ?? '' }}</span>
+    @isset($info)
+        <div class="info">
+            <i class="fa-solid fa-circle-info" title="{{ $info }}"></i>
+        </div>
+    @endisset
 
     <input
         type        ="{{ isset($type) ? $type : 'text' }}"

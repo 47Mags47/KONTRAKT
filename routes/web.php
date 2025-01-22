@@ -5,6 +5,10 @@ use App\Http\Controllers\Web\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    return redirect()->route('welcome');
+})->name('home');
+
+Route::get('/welcome', function () {
     return view('pages.dev.welcome');
 })->name('welcome');
 

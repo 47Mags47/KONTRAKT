@@ -24,6 +24,7 @@
     label.form-input-label
         display: grid
         grid-template-areas: 'A B' 'C C'
+        grid-template-columns: auto 20px
         gap: 5px
         padding: 5px 0
         &.req span.label-text::after
@@ -33,18 +34,25 @@
             padding-left: 3px
         span.label-text
             grid-area: A
-            padding-left: 1rem
-            color: #666
+            padding-left: .5rem
+            color: #333
             font-weight: bold
             font-size: .9rem
-        span.info
-            grid-area: B
-            font-size: .6rem
-            text-align: left
-            color: #666
-            font-weight: bold
+        .info
+            display: flex
+            justify-content: flex-end
+            svg
+                color: #999
+                cursor: pointer
+                transition: .5s
+                &:hover
+                    color: #333
         input, select, textarea
             grid-area: C
+            color: #333
+            font-size: 1rem
+            &:disabled
+                color: #666
 
 .default-form
     display: flex
