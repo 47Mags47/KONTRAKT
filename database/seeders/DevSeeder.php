@@ -14,7 +14,6 @@ class DevSeeder extends Seeder
      */
     public function run(): void
     {
-
         $maker = Maker::create([
             'id' => 1,
             'city_code' => '001',
@@ -28,15 +27,5 @@ class DevSeeder extends Seeder
                 fake()->url(),
             ]
         ]);
-
-        $product = Product::create([
-            'id' => 1,
-            'maker_id' => $maker->id,
-            'category_code' => 'beauty',
-            'name' => 'Тестовый товар поставщика',
-            'description' => 'Тестовый товар поставщика',
-            'logo' => 'media/product/default_logo.png',
-        ]);
-
     }
 }

@@ -3,10 +3,10 @@ $('a').each(function(){
         $(this).on('click', function(e){
             e.preventDefault()
             let item = $($(this).attr('href'))
-            let offset = item.offset().top - item.parent().offset().top - item.parent().scrollTop()
+            let offset = item.parent().scrollTop() + item.position().top - item.parent().position().top
 
             $('section.content').stop().animate({
-                scrollTop: offset - 1
+                scrollTop: offset
             }, 500)
         })
     }

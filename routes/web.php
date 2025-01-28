@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Web\Admin\MakerController;
 use App\Http\Controllers\Web\Admin\ProductController;
+use App\Http\Controllers\Web\AdminController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,6 +26,8 @@ Route::prefix('/makers')->group(function(){
 });
 
 Route::prefix('/admin')->group(function(){
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+
     Route::prefix('/makers')->group(function(){
         Route::get('/create', [MakerController::class, 'create'])->name('admin.maker.create');
         Route::post('/store', [MakerController::class, 'store'])->name('admin.maker.store');

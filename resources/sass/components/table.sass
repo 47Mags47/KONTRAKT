@@ -1,0 +1,64 @@
+.table-box
+    position: relative
+    .options
+        height: 50px
+        background: #394d5f
+        display: flex
+        justify-content: space-between
+        align-items: center
+        gap: 10px
+        padding: 0 15px
+        .search input
+            width: 250px
+            border: none
+        .header
+            font-size: 1.2rem
+            font-weight: bold
+            color: #fff
+            flex: 1
+            text-align: left
+        .filters
+            display: flex
+            gap: 10px
+            label
+                display: flex
+                align-items: center
+                gap: 5px
+                span
+                    color: white
+                    font-weight: bold
+            input, select, button
+                border: none
+            input[type='submit']
+                font-weight: bold
+                font-size: .9rem
+    table
+        width: 100%
+        border-collapse: separate
+        border-spacing: 0
+        border-top: 1px solid #eee
+        thead
+            position: sticky
+            top: 0
+            th
+                padding: 5px
+                background: #d4d4d4
+                border: 1px solid #dddddd
+
+                font-size: 1rem
+                font-weight: bold
+                color: black
+        tbody
+            tr
+                td
+                    height: 24px
+                    padding: 2px 5px
+                    border: 1px solid #eee
+
+                    vertical-align: top
+                    text-align: left
+                    font-size: 1rem
+                &:nth-child(odd)
+                    background: #fff
+                &:nth-child(even)
+                    background: #F7F7F7

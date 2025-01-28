@@ -3,19 +3,20 @@
 namespace App\Models\Main;
 
 use App\Models\Glossary\ProductCategory;
+use App\Models\Glossary\ServiceCategory;
 use App\Models\Traits\hasPrepare;
 use App\Models\Traits\Named;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Service extends Model
 {
     use Named, HasFactory, hasPrepare;
 
     ### Настройки
     ##################################################
     protected
-        $table = 'main__products',
+        $table = 'main__services',
         $guarded = [
             'id',
             'created_at',
@@ -32,7 +33,7 @@ class Product extends Model
     }
 
     public function category(){
-        return $this->belongsTo(ProductCategory::class, 'category_code', 'code');
+        return $this->belongsTo(ServiceCategory::class, 'category_code', 'code');
     }
 
     public function scopeApplyFilter($query, $column, $value){
