@@ -25,6 +25,11 @@
                     @endforeach
                 </x-input.select>
             </x-slot:filters>
+            <x-slot:buttons>
+                <a href="{{ route('maker.create') }}" class="button blue-button">
+                    <i class="fa-solid fa-plus"></i>
+                </a>
+            </x-slot:buttons>
             <x-slot:colgroup>
                 <col>
                 <col width="450px">

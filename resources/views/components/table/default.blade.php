@@ -40,6 +40,11 @@
                 <input type="submit" class="button blue-button" value="Применить">
             @endif
         </div>
+        <div class="buttons">
+            @if (isset($buttons))
+                {{ $buttons }}
+            @endif
+        </div>
     </form>
 
     <table class="table default-table">
