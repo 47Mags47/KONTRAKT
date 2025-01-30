@@ -8,16 +8,15 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/sass/app.sass',
-
                 'resources/sass/layout/admin.sass',
-
+                'resources/sass/pages/index.sass',
                 'resources/sass/pages/maker-index.sass',
                 'resources/sass/pages/admin-maker-show.sass',
-                'resources/sass/pages/admin-product-show.sass',
                 'resources/sass/pages/components.sass',
+                'resources/sass/pages/admin-item-show.sass',
 
-
-                'resources/js/app.js'
+                'resources/js/app.js',
+                'resources/js/pages/index.js',
             ],
             refresh: true,
         }),
