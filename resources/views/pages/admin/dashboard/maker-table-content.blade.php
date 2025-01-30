@@ -2,7 +2,7 @@
     @if ($i < $makers->count())
         <tr>
             <td>{{ $makers[$i]->city->name }}</td>
-            <td><a href="{{ route('admin.maker.show', ['maker' => $makers[$i]]) }}">{{ $makers[$i]->name }}</a></td>
+            <td><a href="{{ route('maker.show', ['maker' => $makers[$i]]) }}">{{ $makers[$i]->name }}</a></td>
             <td>{!! $makers[$i]->comment !!}</td>
             <td></td>
             <td>{{ $makers[$i]->created_at->format('d.m.Y') }}</td>

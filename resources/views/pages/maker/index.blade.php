@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('page-name', 'Отчеты')
+@section('page-name', '')
 
 @push('styles')
     @vite('resources/sass/pages/maker-index.sass')
@@ -16,7 +16,7 @@
         <ul class="item-list">
             @foreach ($makers as $maker)
                 <li>
-                    <a href="{{ route('admin.maker.show', compact('maker')) }}">
+                    <a href="{{ route('maker.show', compact('maker')) }}">
                         <div class="preview">
                             <img src="{{ asset('storage/' . $maker->logo) }}" alt="maker logo">
                         </div>

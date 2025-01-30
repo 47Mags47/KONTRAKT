@@ -46,7 +46,7 @@
 
         <h4>Этапы разработки</h4>
         <ul style="list-style: none">
-            <li>✅ Базовая настройка</li>
+            <li>🔁 Базовая настройка</li>
             <li>❌ Панель поставщика</li>
             <li>❌ Панель товара/услуги</li>
             <li>🔁 Панель администратора</li>
@@ -64,38 +64,31 @@
         </ul>
 
         <ul style="list-style: none">
-            <li>❌ <a href="">Главная страница</a></li>
-            <li>🔁 <a href="{{ route('maker.index') }}">Главная страница - Поставщики</a></li>
+            <li>✅ <a href="{{ route('home') }}">Главная страница</a></li>
         </ul>
 
         <ul style="list-style: none">
-            <li>❌ <a href="">maker - index</a></li>
-            <li>❌ <a href="">maker - index - admin</a></li>
-            <li>❌ <a href="">maker - index - reg-admin</a></li>
-            <li>❌ <a href="">maker - show</a></li>
-            <li>🔁 <a href="{{ route('admin.maker.show', ['maker' => 1]) }}">maker - show - admin</a></li>
-            <li>🔁 <a href="{{ route('admin.maker.show', ['maker' => 1]) }}">maker - show - reg-admin</a></li>
-            <br>
-            <li>✅ <a href="{{ route('admin.maker.create') }}">maker - create - admin</a></li>
-            <li>✅ <a href="">maker - store- admin</a></li>
-            <li>✅ <a href="">maker - edit- admin</a></li>
-            <li>✅ <a href="">maker - update- admin</a></li>
-            <li>❌ <a href="">maker - destroy- admin</a></li>
+            <li>❌ <a href=""><s>maker - index</s></a></li>
+            <li>🔁 <a href="">maker - show</a></li>
+            <li>✅ <a href="{{ route('maker.create') }}">maker - create</a></li>
+            <li>✅ <a href="{{ route('maker.store') }}">maker - store</a></li>
+            <li>✅ <a href="">maker - edit</a></li>
+            <li>✅ <a href="">maker - update</a></li>
+            <li>❌ <a href="">maker - destroy</a></li>
         </ul>
 
         <ul style="list-style: none">
-            <li>❌ <a href="">product - index</a></li>
-            <li>❌ <a href="">product - index - admin</a></li>
-            <li>❌ <a href="">product - index - reg-admin</a></li>
-            <li>❌ <a href="">product - show</a></li>
-            <li>🔁 <a href="{{ route('admin.product.show', ['product' => 1]) }}">product - show - admin</a></li>
-            <li>🔁 <a href="{{ route('admin.product.show', ['product' => 1]) }}">product - show - reg-admin</a></li>
-            <br>
-            <li>✅ <a href="{{ route('admin.product.create', ['maker' => 1]) }}">product - create - admin</a></li>
-            <li>✅ <a href="">product - store- admin</a></li>
-            <li>❌ <a href="">product - edit- admin</a></li>
-            <li>❌ <a href="">product - update- admin</a></li>
-            <li>❌ <a href="">product - destroy- admin</a></li>
+            <li>❌ <a href=""><s>item - index</s></a></li>
+            <li>✅ <a href="">item - show</a></li>
+            <li>✅ <a href="">item - product - create</a></li>
+            <li>✅ <a href="">item - service - create</a></li>
+            <li>✅ <a href="">item - product - store</a></li>
+            <li>✅ <a href="">item - service - store</a></li>
+            <li>✅ <a href="">item - product - edit</a></li>
+            <li>✅ <a href="">item - service - edit</a></li>
+            <li>✅ <a href="">item - product - update</a></li>
+            <li>✅ <a href="">item - service - update</a></li>
+            <li>❌ <a href="">item - destroy</a></li>
         </ul>
 
         <h4>Ссылки на ресурсы:</h4>

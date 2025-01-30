@@ -2,14 +2,14 @@
 
 namespace Database\Factories\Main;
 
-use App\Models\Glossary\ServiceCategory;
+use App\Models\Glossary\ItemType;
 use App\Models\Main\Maker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Main\Product>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Main\Item>
  */
-class ServiceFactory extends Factory
+class ItemFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -20,7 +20,7 @@ class ServiceFactory extends Factory
     {
         return [
             'maker_id' => Maker::all()->random()->id,
-            'category_code' => ServiceCategory::all()->random()->code,
+            'type_code' => ItemType::all()->random()->code,
             'name' => $this->faker->text(50),
             'description' => 'Фабрично созданный',
             'logo' => null,

@@ -41,7 +41,7 @@
         @isset($ph)     placeholder="{{ $ph }}" @endisset
 
         @required(isset($req))
-        @disabled(isset($disable))
+        @disabled(isset($disabled))
     >
 
     @isset($label)

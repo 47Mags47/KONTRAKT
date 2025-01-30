@@ -23,7 +23,7 @@
                     class="profile-info-box"
                     sbm="Сохранить"
                     header="Профиль поставщика"
-                    :action="route('admin.maker.store')"
+                    :action="route('maker.store')"
                     id="profile-info-form"
                     error-show
                     file

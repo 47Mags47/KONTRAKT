@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Glossary\ServiceCategory;
+use App\Models\Glossary\ItemType;
 use App\Models\Main\Maker;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('main__services', function (Blueprint $table) {
+        Schema::create('main__items', function (Blueprint $table) {
             $table->id();
             $table->foreignId('maker_id')->constrained(Maker::getTableName());
-            $table->string('category_code');
-            $table->foreign('category_code')->references('code')->on(ServiceCategory::getTableName());
+            $table->string('type_code');
+            $table->foreign('type_code')->references('code')->on(ItemType::getTableName());
 
             $table->string('name');
 
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('main__services');
+        Schema::dropIfExists('main__items');
     }
 };

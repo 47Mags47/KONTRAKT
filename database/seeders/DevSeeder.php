@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Main\Item;
 use App\Models\Main\Maker;
 use App\Models\Main\Product;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -14,18 +15,7 @@ class DevSeeder extends Seeder
      */
     public function run(): void
     {
-        $maker = Maker::create([
-            'id' => 1,
-            'city_code' => '001',
-            'name' => 'Test Maker',
-            'address' => 'ул. Пушкина, д. 47',
-            'description' => 'Тестовый поставщик услуг и товаров',
-            'logo' => 'media/maker/default_logo.png',
-            'comment' => 'Тестовый поставщик услуг и товаров',
-            'links' => [
-                fake()->url(),
-                fake()->url(),
-            ]
-        ]);
+        Maker::factory(10)->create();
+        Item::factory(100)->create();
     }
 }

@@ -6,8 +6,7 @@
         <x-nav-list.item text="Мониторинг"          ico="fa-solid fa-chart-line"            link="#monitoring"/>
         <x-nav-list.item text="Сервер"              ico="fa-solid fa-server"                link="#server"/>
         <x-nav-list.item text="Поставщики"          ico="fa-solid fa-users"                 link="#suppliers" />
-        <x-nav-list.item text="Товары"              ico="fa-solid fa-box"                   link="#products" />
-        <x-nav-list.item text="Услуги"              ico="fa-solid fa-bell-concierge"        link="#services" />
+        <x-nav-list.item text="Товары и услуги"     ico="fa-solid fa-box"                   link="#items" />
         <x-nav-list.item text="Профиль"             ico="fa-solid fa-user"                  link="#profile" active />
         <x-nav-list.item text="Настройки"           ico="fa-solid fa-gear"                  link="#settings" />
 
@@ -49,16 +48,10 @@
             </x-slot:tbody>
         </x-table.default>
     </div>
-    <div class="products"   id="products">
-        <x-table.default header="Товары"  model="product" search>
-            <x-slot:filters>
-                <x-input.select name="filters[category_code]" label="Категория">
-                    @foreach ($productCategories as $category)
-                        <option value="{{ $category->code }}">{{ $category->name }}</option>
-                    @endforeach
-                </x-input.select>
-            </x-slot:filters>
+    <div class="items"   id="items">
+        <x-table.default header="Товары и услуги"  model="items" search>
             <x-slot:colgroup>
+                <col>
                 <col>
                 <col>
                 <col>
@@ -68,48 +61,17 @@
             </x-slot:colgroup>
             <x-slot:thead>
                 <tr>
+                    <th>Тип</th>
                     <th>Поставщик</th>
-                    <th>Категория</th>
                     <th>Наименование</th>
+                    <th>Тэги</th>
                     <th>ОКП</th>
                     <th>Создан</th>
                     <th>Обновлен</th>
                 </tr>
             </x-slot:thead>
             <x-slot:tbody>
-                {!! $productView !!}
-            </x-slot:tbody>
-        </x-table.default>
-    </div>
-    <div class="services"   id="services">
-        <x-table.default header="Услуги"  model="service" search>
-            <x-slot:filters>
-                <x-input.select name="filters[category_code]" label="Категория">
-                    @foreach ($serviceCategories as $category)
-                        <option value="{{ $category->code }}">{{ $category->name }}</option>
-                    @endforeach
-                </x-input.select>
-            </x-slot:filters>
-            <x-slot:colgroup>
-                <col>
-                <col>
-                <col>
-                <col width="100px">
-                <col width="100px">
-                <col width="150px">
-            </x-slot:colgroup>
-            <x-slot:thead>
-                <tr>
-                    <th>Поставщик</th>
-                    <th>Категория</th>
-                    <th>Наименование</th>
-                    <th>ОКП</th>
-                    <th>Создан</th>
-                    <th>Обновлен</th>
-                </tr>
-            </x-slot:thead>
-            <x-slot:tbody>
-                {!! $servifceView !!}
+                {!! $itemView !!}
             </x-slot:tbody>
         </x-table.default>
     </div>

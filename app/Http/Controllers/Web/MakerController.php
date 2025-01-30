@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Web\Admin;
+namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Glossary\City;
@@ -41,11 +41,11 @@ class MakerController extends Controller
         $validated['logo'] = 'media/maker/' . $file_name;
         $maker = Maker::create($validated);
 
-        return redirect()->route('admin.maker.show', compact('maker'));
+        return redirect()->route('maker.show', compact('maker'));
     }
 
     public function show(Maker $maker){
-        return view('pages.maker.show', compact('maker'));
+        return view('pages.maker.show-admin', compact('maker'));
     }
 
     public function edit(Maker $maker){
@@ -77,7 +77,7 @@ class MakerController extends Controller
         if($validated['comment'] !== null) $maker->comment = $validated['comment'];
         $maker->save();
 
-        return redirect()->route('admin.maker.show', compact('maker'));
+        return redirect()->route('maker.show', compact('maker'));
     }
 
     public function destroy(){

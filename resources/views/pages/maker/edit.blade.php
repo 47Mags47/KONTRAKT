@@ -24,7 +24,7 @@
                 class="profile-info-box"
                 sbm="Сохранить"
                 header="Профиль поставщика"
-                :action="route('admin.maker.update', compact('maker'))"
+                :action="route('maker.update', compact('maker'))"
                 method="put"
                 id="profile-info-form"
                 error-show

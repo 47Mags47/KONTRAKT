@@ -16,8 +16,8 @@
 
 @isset($label)
     <label @class([
-        'form-select-label',
-        'req' => isset($req),
+            'form-select-label',
+            'req' => isset($req),
         ])
         for="{{ $name }}"
     >

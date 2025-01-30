@@ -17,7 +17,7 @@
 
         <div class="sectional-list">
             <div class="info-box" id="info-box">
-                <x-input.change-image-show class="profile-logo" :preview="asset('/storage/' . $maker->logo)" button="Редактировать" :link="route('admin.maker.edit', compact('maker'))" />
+                <x-input.change-image-show class="profile-logo" :preview="asset('/storage/' . $maker->logo)" button="Редактировать" :link="route('maker.edit', compact('maker'))" />
                 <x-form.default-show class="profile-info-box" header="Профиль поставщика">
                     <x-input.text-show      label="Город"               :value="$maker->city->name" />
                     <x-input.text-show      label="Наименование"        :value="$maker->name" />
@@ -28,11 +28,12 @@
                 </x-form.default-show>
             </div>
 
+            {{-- HACK Поменять размер карточек --}}
             <div class="product-box" id="product-box">
                 <p class="box-header">Товары</p>
                 <ul class="sectional-list">
                     <li class="add-item-box">
-                        <a href="{{ route('admin.product.create', compact('maker')) }}">
+                        <a href="{{ route('item.create', ['maker' => $maker, 'type' => 'product']) }}">
                             <i class="fa-solid fa-plus"></i>
                         </a>
                     </li>
@@ -41,7 +42,7 @@
                             <div class="image-box">
                                 <img src="{{ asset('storage/' . $product->logo) }}" alt="">
                             </div>
-                            <a href="{{ route('admin.product.show', compact('product')) }}" class="button blue-button">Перейти</a>
+                            <a href="{{ route('item.show', ['maker' => $maker, 'item' => $product]) }}" class="button blue-button">Перейти</a>
                         </li>
                     @endforeach
                 </ul>
@@ -51,15 +52,25 @@
                 <p class="box-header">Услуги</p>
                 <ul class="sectional-list">
                     <li class="add-item-box">
-                        <a href="">
+                        <a href="{{ route('item.create', ['maker' => $maker, 'type' => 'service']) }}">
                             <i class="fa-solid fa-plus"></i>
                         </a>
                     </li>
+                    @foreach ($maker->services as $cervice)
+                        <li>
+                            <div class="image-box">
+                                <img src="{{ asset('storage/' . $cervice->logo) }}" alt="">
+                            </div>
+                            <a href="{{ route('item.show', ['maker' => $maker, 'item' => $cervice]) }}" class="button blue-button">Перейти</a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
+            {{-- HACK добавить окно статистики --}}
             <div class="statistic-box" id="statistic-box">
                 <p class="box-header">Статистика</p>
             </div>
+            {{-- HACK добавить окно Администрирования --}}
             <div class="administration-box" id="administration-box">
                 <p class="box-header">Администрирование</p>
             </div>

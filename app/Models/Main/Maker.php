@@ -3,6 +3,7 @@
 namespace App\Models\Main;
 
 use App\Models\Glossary\City;
+use App\Models\Glossary\ItemType;
 use App\Models\Traits\hasPrepare;
 use App\Models\Traits\Named;
 use Illuminate\Contracts\Database\Eloquent\Builder;
@@ -35,8 +36,8 @@ class Maker extends Model
         return $this->belongsTo(City::class, 'city_code', 'code');
     }
 
-    public function products(){
-        return $this->hasMany(Product::class, 'maker_id');
+    public function items(){
+        return $this->hasMany(Item::class, 'maker_id');
     }
 
     public function scopeApplyFilter($query, $column, $value){
@@ -45,5 +46,13 @@ class Maker extends Model
                 return $query->where($column, $value);
                 break;
         }
+    }
+
+    public function products(){
+        return $this->hasMany(Item::class, 'maker_id')->where('type_code', 'product');
+    }
+
+    public function services(){
+        return $this->hasMany(Item::class, 'maker_id')->where('type_code', 'product');
     }
 }
